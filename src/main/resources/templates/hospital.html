@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Hospital Detaiils</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=a9a31ec932de3114d9b1ed27688edc60">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link rel="stylesheet" href="http://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100&display=swap" rel="stylesheet">
+
+	<!-- ------------ -->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+
+	</script>
+
+	<!-- ===== CSS ===== -->
+	<link rel="stylesheet" href="/assets/css/productNew.css">
+	<style type="text/css">
+		#collapseA::after {
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: 20px;
+			transform: translateY(-50%);
+		}
+
+		#collapseB::after {
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: 20px;
+			transform: translateY(-50%);
+		}
+	</style>
+
+	<!-- Icon link added -->
+	<script src="https://kit.fontawesome.com/c598047e8f.js" crossorigin="anonymous"></script>
+
+
+	<script src="/assets/js/products.js">
+
+	</script>
+</head>
+
+<body id="page-top">
+	<div id="wrapper">
+		<nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion p-0 mr-3">
+			<div class="container-fluid d-flex flex-column p-0">
+				<a th:href="@{'/Admin/' }"
+					class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0 my-2">
+					<div class="sidebar-brand-icon rotate-n-0"><img src="/assets/img/global.png" alt="logo" width="45"
+							height="45"></div>
+					<div class="sidebar-brand-text mx-1"><span style="color:white;">Doctor's <br> Appoinment</span>
+					</div>
+				</a>
+				<hr class="sidebar-divider my-0">
+				<ul class="nav navbar-nav text-white nlink">
+					<li class="nav-item"><a th:href="@{'/location/' }" class="nav-link active"><i
+								class="fas fa-street-view"></i>&nbsp;&nbsp;<span>Location</span></a></li>
+					<li class="nav-item"><a th:href="@{'/Admin/' }" class="nav-link"><i
+								class="fas fa-chart-line"></i>&nbsp;&nbsp;<span>Dashboard</span></a></li>
+
+					<!--Hospital & child-->
+					<li class="nav-item" style="padding-right: 0rem!important; margin-right: 0rem!important;">
+						<a class="nav-link collapsed" id="collapseB" data-toggle="collapse" href="#collapseList1"
+							role="button" aria-expanded="false" aria-controls="collapseList1"><i
+								class="fa fa-sitemap"></i>&nbsp;&nbsp;<span>Hospital</span>
+						</a>
+						<div class="collapse" id="collapseList1"
+							style="padding-right: 0rem!important; margin-right: 0rem!important;  position: initial;">
+							<ul class="nav navbar-nav text-light" style=" padding: 0rem!important;">
+								<li class="nav-item" style=" list-style: none;">
+									<a class="nav-link" th:href="@{'/hospital' }"> <i
+											class="fas fa-box-open"></i>&nbsp;&nbsp;<span>Hospital Details</span></a>
+								</li>
+								<li class="nav-item" style=" list-style: none; "><a class="nav-link"
+										th:href="@{'/chambers' }"><i
+											class="fas fa-id-card"></i>&nbsp;&nbsp;<span>Add Chamber
+										</span></a> </li>
+							</ul>
+						</div>
+					</li>
+					<li class="nav-item"><a th:href="@{'/SignUp1/' }" class="nav-link"><i
+								class="far fa-user"></i>&nbsp;&nbsp;<span>User</span></a></li>
+					<li class="nav-item"><a th:href="@{'/SignUp2/' }" class="nav-link"><i
+								class="fas fa-user-nurse"></i>&nbsp;&nbsp;<span>Doctor</span></a></li>
+				</ul>
+				<div class="text-center d-none d-md-inline"></div>
+			</div>
+		</nav>
+		<div class="d-flex flex-column" id="content-wrapper">
+			<div id="content" class="background">
+				<button class="btn btn-link rounded-circle mr-3" data-bs-hover-animate="swing" id="sidebarToggleTop"
+					type="button">
+					<i class="fas fa-bars"></i>
+				</button>
+				<div class="row">
+						<div class="col-md-5"></div>
+						<div class="col-md-4"></div>
+						<div class="col-md-3"> 
+							<a class="btn btn-primary btn-lg buttonhospital" type="button" th:href="@{'/chambers/'}" style="margin-left:3%;"><i class="fas fa-plus-square"></i>&nbsp; Add New Chamber</a>
+						</div>
+					</div>
+				<div class="container formiddle">
+					<div class="card mb-3" style=" display: inline-block; margin-left:28%; color:#b3d9ff; opacity:0.7">
+						<h1 class="mb-1 pr-2 pl-2" style="text-align:center; color:rgb(0, 0, 0); font-family: 'Encode Sans SC', sans-serif; font-size:4rem;"><b>Hospital Details</b></h1>
+					</div>
+					<div class="row row-cols-1 row-cols-md-3 mt-2">
+						<div class="col-md-3">
+							<div class="card h-100">
+								<div class="card-header carhospital" style="text-align: center;">
+									<i class="far fa-hospital fa-5x"></i>
+								</div>
+								<div class="card-body carhospital1">
+									<h5 class="card-title mb-3" style="text-align:center;">Hospital ID</h5>
+									<input type="text" id="hosId" style="text-align:center; color:navy; font-weight: bold;" readonly name="hosId" th:value = "*{hosId}" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card h-100">
+								<div class="card-header carhospital" style="text-align: center;">
+									<i class="fas fa-user-md fa-5x"></i>
+								</div>
+								<div class="card-body carhospital1">
+									<h5 class="card-title mb-3" style="text-align:center;">Chamber Details</h5>
+									<input type="text" id="hosName" style="text-align:center; color:navy; font-weight: bold;" readonly name="hosName" th:value = "*{hosName}" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card h-100">
+								<div class="card-header carhospital" style="text-align: center;">
+									<i class="fas fa-map-marker-alt fa-5x"></i>
+								</div>
+								<div class="card-body carhospital1">
+									<h5 class="card-title mb-3" style="text-align:center;">Location</h5>
+									<input type="text" id="hosLocation" style="text-align:center; font-weight: bold; color:navy; overflow-x:scroll;" readonly name="hosLocation" th:value = "*{hosLocation}" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card h-100">
+								<div class="card-header carhospital" style="text-align: center;">
+									<i class="fas fa-shield-alt fa-5x"></i>
+								</div>
+								<div class="card-body carhospital1">
+									<h5 class="card-title mb-3" style="text-align:center;">Status</h5>
+									<input type="text" style="text-align:center; font-weight: bold; color:rgb(255, 0, 128);" id="hosStatus" readonly name="hosStatus" th:value = "*{s}" class="form-control">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</div>
+
+	<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+	<script src="/assets/js/script.min.js?h=af3a23ce326fbc8eb447b5418ddb619e"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="http://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+</body>
+
+</html>

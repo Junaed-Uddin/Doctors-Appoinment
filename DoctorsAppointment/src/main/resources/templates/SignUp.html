@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>Registration</title>
+	<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=a9a31ec932de3114d9b1ed27688edc60">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+	<!-- MATERIAL DESIGN ICONIC FONT -->
+	<link rel="stylesheet" href="/assets/fonts/material-design-iconic-font/fonts/material-design-iconic-font.min.css">
+
+	<!-- ===== CSS ===== -->
+	<link rel="stylesheet" href="/assets/css/signup.css">
+
+	<!-- Icon link added -->
+	<script src="https://kit.fontawesome.com/c598047e8f.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="" style="background-image: url('/assets/images/bg1.jpg'); background-repeat: no-repeat;
+background-size: cover;">
+	<div class="wrapper">
+		<div class="inner">
+			<form th:action="@{'/User_Registration' }" method="post" th:object="${patientinsertModel}">
+				<h3 class="form">Registration Form</h3>
+				<div class="form-wrapper" style="width: 100%;">
+					<label for="" style="color:black;">User Type:</label>
+					<div class="form-holder select">
+						<select name="" id="" class="form-control" placeholder="Select User Type"
+							th:field="*{USER_TYPE_ID}">
+							<option value="1">Patient</option>
+							<option value="2">Doctor</option>
+							<option value="3">Hospital</option>
+							<option value="4">Operator</option>
+							<option value="5">Admin</option>
+						</select>
+						<i class="zmdi zmdi-pin"></i>
+					</div>
+				</div>
+				<div class="form-group mt-5">
+					<div class="form-wrapper">
+						<label for="" style="color:black;">Username:</label>
+						<div class="form-holder">
+							<i class="zmdi zmdi-account-o"></i>
+							<input type="text" class="form-control" name="username" th:field="*{USERID}" required>
+						</div>
+					</div>
+					<div class="form-wrapper">
+						<label for="" style="color:black;">Password:</label>
+						<div class="form-holder">
+							<i class="zmdi zmdi-lock-outline"></i>
+							<input type="password" class="form-control" name="pass" th:field="*{USER_PASS}" required>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="form-wrapper">
+					<label for="" style="color:black;">Email:</label>
+					<div class="form-holder">
+						<i style="font-style: normal; font-size: 15px;" required></i>
+						<input type="email" class="form-control" name="email" th:field="*{EMAILID}">
+					</div>
+				</div>
+
+				<div class="form-wrapper">
+					<div class="button-holder">
+						<button class="border border-primary">Register Now</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+	<script src="/assets/js/script.min.js?h=af3a23ce326fbc8eb447b5418ddb619e"></script>
+</body>
+
+</html>

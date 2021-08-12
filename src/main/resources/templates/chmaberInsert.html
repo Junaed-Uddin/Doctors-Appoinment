@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Chamber</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=a9a31ec932de3114d9b1ed27688edc60">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link rel="stylesheet" href="http://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100&display=swap" rel="stylesheet">
+
+	<!-- ------------ -->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+
+	</script>
+
+	<!-- ===== CSS ===== -->
+	<link rel="stylesheet" href="/assets/css/productNew.css">
+	<style type="text/css">
+		#collapseA::after {
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: 20px;
+			transform: translateY(-50%);
+		}
+
+		#collapseB::after {
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: 20px;
+			transform: translateY(-50%);
+		}
+	</style>
+
+	<!-- Icon link added -->
+	<script src="https://kit.fontawesome.com/c598047e8f.js" crossorigin="anonymous"></script>
+
+
+	<script src="/assets/js/products.js">
+
+	</script>
+</head>
+
+<body id="page-top">
+	<div id="wrapper">
+		<nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion p-0 mr-3">
+			<div class="container-fluid d-flex flex-column p-0">
+				<a th:href="@{'/Admin/' }"
+					class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0 my-2">
+					<div class="sidebar-brand-icon rotate-n-0"><img src="/assets/img/global.png" alt="logo" width="45"
+							height="45"></div>
+					<div class="sidebar-brand-text mx-1"><span style="color:#7256CC">Doctor's <br> Appoinment</span>
+					</div>
+				</a>
+				<hr class="sidebar-divider my-0">
+				<ul class="nav navbar-nav text-white nlink">
+					<li class="nav-item"><a th:href="@{'/location/' }" class="nav-link active"><i
+								class="fas fa-street-view"></i>&nbsp;&nbsp;<span>Location</span></a></li>
+					<li class="nav-item"><a th:href="@{'/Admin/' }" class="nav-link"><i
+								class="fas fa-chart-line"></i>&nbsp;&nbsp;<span>Dashboard</span></a></li>
+
+					<!--Hospital & child-->
+					<li class="nav-item" style="padding-right: 0rem!important; margin-right: 0rem!important;">
+						<a class="nav-link collapsed" id="collapseB" data-toggle="collapse" href="#collapseList1"
+							role="button" aria-expanded="false" aria-controls="collapseList1"><i
+								class="fa fa-sitemap"></i>&nbsp;&nbsp;<span>Hospital</span>
+						</a>
+						<div class="collapse" id="collapseList1"
+							style="padding-right: 0rem!important; margin-right: 0rem!important;  position: initial;">
+							<ul class="nav navbar-nav text-light" style=" padding: 0rem!important;">
+								<li class="nav-item" style=" list-style: none;">
+									<a class="nav-link" th:href="@{'/hospital' }"> <i
+											class="fas fa-box-open"></i>&nbsp;&nbsp;<span>Hospital Details</span></a>
+								</li>
+								<li class="nav-item" style=" list-style: none; "><a class="nav-link"
+										th:href="@{'/addChamberDetails' }"><i
+											class="fas fa-id-card"></i>&nbsp;&nbsp;<span>Add Chamber
+										</span></a> </li>
+							</ul>
+						</div>
+					</li>
+					<li class="nav-item"><a th:href="@{'/SignUp1/' }" class="nav-link"><i
+								class="far fa-user"></i>&nbsp;&nbsp;<span>User</span></a></li>
+					<li class="nav-item"><a th:href="@{'/SignUp2/' }" class="nav-link"><i
+								class="fas fa-user-nurse"></i>&nbsp;&nbsp;<span>Doctor</span></a></li>
+				</ul>
+				<div class="text-center d-none d-md-inline"></div>
+			</div>
+		</nav>
+		<div class="d-flex flex-column" id="content-wrapper">
+			<div id="content">
+				<nav class="navbar navbar-light navbar-expand bg-light shadow mb-4 topbar static-top">
+					<div class="container-fluid">
+						<button class="btn btn-link rounded-circle mr-3" data-bs-hover-animate="swing"
+							id="sidebarToggleTop" type="button">
+							<i class="fas fa-bars"></i>
+						</button>
+
+					</div>
+				</nav>
+				<div class="container-fluid">
+					<div class="card" style="background-color:#094375;">
+						<h2 class="text mb-3 mt-3"
+							style="color:rgb(255, 255, 255);text-align: center; font-family: 'Encode Sans SC', sans-serif;">
+							<b>Add New Chamber</b></h2>
+					</div>
+					<div class="row text-dark">
+						<div class="col-lg-12 col-xl-12 col-md-12 col-sm-12">
+							<div class="card shadow" style="margin-bottom: 2rem;">
+								<div class="card-body">
+									<form th:action="@{/chambers}" method="post" th:object="${insertChamber}">
+										<div class="col-lg-6 col-xl-6 col-md-6 col-sm-6">
+											<input hidden type="text" class="form-control">
+										</div>
+										
+										<div class="form-row">
+											<div class="col-md-3">
+												<label for="validationDefault04">Chamber ID</label>
+												<input  readonly id="chamberId" name="chamberId" th:value = "*{chamberId}"
+													class="form-control" required>
+											</div>
+											<div class="col-md-3">
+												<label for="validationDefault04">Chamber Details</label>
+												<input type="text" class="form-control" name="chamberDescr" id="chamberDescr">
+											</div>
+											<div class="col-md-5">
+												<label for="validationDefault04">Email</label>
+												<input type="text" class="form-control" name="email" id="email">
+											</div>
+											<div class="col-md-1">
+												<label for="validationDefault04">Status</label>
+												<div class="input-group-prepend">
+													<div class="input mt-2 ml-3">
+														<input type="checkbox" value="1" name="status" id="status">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-row my-3">
+											<div class="col-lg-4 col-xl-4 col-md-6 col-sm-6">
+												<label>Location hierarchy (1)</label>
+												<select name="chamberCountry" class="form-control" id="locCode">
+													<option value='0'>i.e. Select Country</option>
+													<option th:each="p : ${LocList}"
+														th:selected="(${p.locCode} == *{chamberCountry})"
+														th:value="${p.locCode}" th:text="${p.locDescr}" />
+												</select>
+											</div>
+											<div class="col-lg-4 col-xl-4 col-md-6 col-sm-6">
+												<label>Location hierarchy (2)</label>
+												<select class="form-control" name="chamberDiv" id="chamberDiv">
+													<option value='0'>i.e. Select Division</option>
+
+												</select>
+											</div>
+											<div class="col-lg-4 col-xl-4 col-md-6 col-sm-6">
+												<label>Location hierarchy (3)</label>
+												<select class="form-control" name="chamberDis" id="chamberDis">
+													<option value='0'>i.e. Select District</option>
+
+												</select>
+											</div>
+
+										</div>
+										<div class="form-row my-3">
+											<div class="col-lg-4 col-xl-4 col-md-6 col-sm-6">
+												<label>Location hierarchy (4)</label>
+												<select class="form-control" name="chamberThana" id="chamberThana">
+													<option value='0'>i.e. Select Thana</option>
+
+												</select>
+											</div>
+											<div class="col-lg-4 col-xl-4 col-md-6 col-sm-6">
+												<label>Location hierarchy (5)</label>
+												<select class="form-control" name="chamberZip" id="chamberZip">
+													<option value='0'>i.e. Select ZIP Area</option>
+
+												</select>
+											</div>
+											<div class="col-lg-4 col-xl-4 col-md-6 col-sm-6">
+												<label>Location hierarchy (6)</label>
+												<select class="form-control" name="chamberRoad" id="chamberRoad">
+													<option value='0'>i.e. Select Road Name or Number</option>
+
+												</select>
+											</div>
+										</div>
+										
+										
+										<div class="form-row mt-4">
+											<div class="col-md-4">
+												<label for="validationDefault04">Contact Person 1</label>
+												<input type="text" id="contactperson1" name="contactperson1"
+													class="form-control" required>
+											</div>
+											<div class="col-md-4">
+												<label for="validationDefault04">Contact Person 2</label>
+												<input type="text" id="contactperson2" name="contactperson2"
+													class="form-control" required>
+											</div>
+											<div class="col-md-4">
+												<label for="validationDefault04">Address 1</label>
+												<input type="text" id="address1" name="address1" class="form-control"
+													required>
+											</div>
+										</div>
+										<div class="form-row mt-4">
+											<div class="col-md-4">
+												<label for="validationDefault04">Address 2</label>
+												<input type="text" id="address2" name="address2" class="form-control"
+													required>
+											</div>
+											<div class="col-md-4">
+												<label for="validationDefault04">Contact No 1</label>
+												<input type="text" id="contaactNo1" name="contaactNo1"
+													class="form-control" required>
+											</div>
+											<div class="col-md-4">
+												<label for="validationDefault04">Contact No 2</label>
+												<input type="text" id="contactNo2" name="contactNo2"
+													class="form-control" required>
+											</div>
+										</div>
+								</div>
+								<div class="col center1 mt-1" style="display: flex; justify-content: center;">
+
+									<input class="btn btn-secondary btn-lg" type="submit" value="Add Chamber"
+										style="border-radius: 0.3rem; margin-bottom: 1rem;"></input> <input
+										class="btn btn-primary" type="submit" th:formaction="@{'/addNewStore/edit/'}"
+										th:if="${flag == 0}" value="Edit" style="border-radius: 0.3rem;"></input>
+								</div>
+								</form>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 mb-4">
+							<div class="card shadow" style="overflow-x: auto; text-align: center; padding: 1rem;">
+								<table class="table table-bordered table-striped table-hover" id="myTable"
+									style="color: black;">
+									<thead class="thead">
+										<tr>
+											<th scope="col" width="25%">Chamber Name</th>
+											<th scope="col" width="25%">Email</th>
+											<th scope="col" width="25%">Phone Number</th>
+											<th scope="col" width="25%">Address</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td th:text="a"></td>
+											<td th:text="a"></td>
+											<td th:text="a"></td>
+											<td th:text="a"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+	</div>
+
+	<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+	<script src="/assets/js/script.min.js?h=af3a23ce326fbc8eb447b5418ddb619e"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="http://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+
+	<script>
+		$(document).ready(function () {
+			$('#myTable').DataTable();
+		});
+	</script>
+
+
+
+	<script>
+		$(document)
+			.ready(
+				function () {
+					$("#locCode")
+						.change(
+							function () {
+
+								$("#chamberDiv").empty();
+
+								var x = $("#locCode").val();
+								console.log(x);
+
+								if (x == "0") {
+									$("#chamberDiv")
+										.empty();
+									$("<option>")
+										.val("0")
+										.text(
+											"Select Location")
+										.appendTo(
+											ParentDbPoint_Dropdown);
+								} else {
+
+									var urlString = "/LocationChild/"
+										+ x;
+									console.log(urlString);
+
+									$.ajax({
+										method: "GET",
+										url: urlString
+									})
+										.done(
+											function (
+												responseJson) {
+
+												ParentDbPoint_Dropdown = $("#chamberDiv");
+
+												$("<option>")
+													.val(
+														"0")
+													.text(
+														"Select Parent Db Point")
+													.appendTo(
+														ParentDbPoint_Dropdown);
+												$.each(
+													responseJson,
+													function (
+														index,
+														parent) {
+
+														$(
+															"<option>")
+															.val(
+																parent.locCode)
+															.text(
+																parent.locDescr)
+															.appendTo(
+																ParentDbPoint_Dropdown);
+													});
+											})
+										.fail(
+											function () {
+												alert("Connection Error");
+											})
+								}
+
+							})
+				})
+	</script>
+
+	<!-- District Dropdown -->
+
+	<script>
+		$(document)
+			.ready(
+				function () {
+					$("#chamberDiv")
+						.change(
+							function () {
+
+								$("#chamberDis").empty();
+
+								var x = $("#chamberDiv").val();
+								console.log(x);
+
+								if (x == "0") {
+									$("#chamberDis").empty();
+									$("<option>")
+										.val("0")
+										.text(
+											"Select District")
+										.appendTo(
+											District_Dropdown);
+								} else {
+
+									var urlString = "/LocationChild/"
+										+ x;
+									console.log(urlString);
+
+									$
+										.ajax({
+											method: "GET",
+											url: urlString
+										})
+										.done(
+											function (
+												responseJson) {
+
+												District_Dropdown = $("#chamberDis");
+
+												$(
+													"<option>")
+													.val(
+														"0")
+													.text(
+														"Select District")
+													.appendTo(
+														District_Dropdown);
+												$
+													.each(
+														responseJson,
+														function (
+															index,
+															parent) {
+
+															$(
+																"<option>")
+																.val(
+																	parent.locCode)
+																.text(
+																	parent.locDescr)
+																.appendTo(
+																	District_Dropdown);
+														});
+											})
+										.fail(
+											function () {
+												alert("Connection Error");
+											})
+								}
+
+							})
+				})
+	</script>
+	<!-- 		Dirstrict dropdown ends  -->
+
+	<!-- Thana DropDown Start -->
+
+
+
+
+	<script>
+		$(document)
+			.ready(
+				function () {
+					$("#chamberDis")
+						.change(
+							function () {
+
+								$("#chamberThana").empty();
+
+								var x = $("#chamberDis").val();
+								console.log(x);
+
+								if (x == "0") {
+									$("#chamberThana").empty();
+									$("<option>")
+										.val("0")
+										.text(
+											"Select District")
+										.appendTo(
+											Thana_Dropdown);
+								} else {
+
+									var urlString = "/LocationChild/"
+										+ x;
+									console.log(urlString);
+
+									$
+										.ajax({
+											method: "GET",
+											url: urlString
+										})
+										.done(
+											function (
+												responseJson) {
+
+												Thana_Dropdown = $("#chamberThana");
+
+												$(
+													"<option>")
+													.val(
+														"0")
+													.text(
+														"Select District")
+													.appendTo(
+														Thana_Dropdown);
+												$
+													.each(
+														responseJson,
+														function (
+															index,
+															parent) {
+
+															$(
+																"<option>")
+																.val(
+																	parent.locCode)
+																.text(
+																	parent.locDescr)
+																.appendTo(
+																	Thana_Dropdown);
+														});
+											})
+										.fail(
+											function () {
+												alert("Connection Error");
+											})
+								}
+
+							})
+				})
+	</script>
+
+
+	<!-- Thana Dropdown Ends -->
+
+
+
+	<!-- Zip Dropdown Start -->
+
+	<script>
+		$(document)
+			.ready(
+				function () {
+					$("#chamberThana")
+						.change(
+							function () {
+
+								$("#chamberZip").empty();
+
+								var x = $("#chamberThana").val();
+								console.log(x);
+
+								if (x == "0") {
+									$("#chamberZip").empty();
+									$("<option>")
+										.val("0")
+										.text(
+											"Select Zip Area")
+										.appendTo(
+											Zip_Dropdown);
+								} else {
+
+									var urlString = "/LocationChild/"
+										+ x;
+									console.log(urlString);
+
+									$
+										.ajax({
+											method: "GET",
+											url: urlString
+										})
+										.done(
+											function (
+												responseJson) {
+
+												Zip_Dropdown = $("#chamberZip");
+
+												$(
+													"<option>")
+													.val(
+														"0")
+													.text(
+														"Select Zip Area")
+													.appendTo(
+														Zip_Dropdown);
+												$
+													.each(
+														responseJson,
+														function (
+															index,
+															parent) {
+
+															$(
+																"<option>")
+																.val(
+																	parent.locCode)
+																.text(
+																	parent.locDescr)
+																.appendTo(
+																	Zip_Dropdown);
+														});
+											})
+										.fail(
+											function () {
+												alert("Connection Error");
+											})
+								}
+
+							})
+				})
+	</script>
+
+
+
+	<!-- Zip Dropdown Ends -->
+
+
+	<!-- Road number Dropdown Start -->
+
+	<script>
+		$(document)
+			.ready(
+				function () {
+					$("#chamberZip")
+						.change(
+							function () {
+
+								$("#chamberRoad").empty();
+
+								var x = $("#chamberZip").val();
+								console.log(x);
+
+								if (x == "0") {
+									$("#chamberRoad").empty();
+									$("<option>")
+										.val("0")
+										.text(
+											"Select Zip Area")
+										.appendTo(
+											Zip_Dropdown);
+								} else {
+
+									var urlString = "/LocationChild/"
+										+ x;
+									console.log(urlString);
+
+									$
+										.ajax({
+											method: "GET",
+											url: urlString
+										})
+										.done(
+											function (
+												responseJson) {
+
+												Zip_Dropdown = $("#chamberRoad");
+
+												$(
+													"<option>")
+													.val(
+														"0")
+													.text(
+														"Select Road Number")
+													.appendTo(
+														Zip_Dropdown);
+												$
+													.each(
+														responseJson,
+														function (
+															index,
+															parent) {
+
+															$(
+																"<option>")
+																.val(
+																	parent.locCode)
+																.text(
+																	parent.locDescr)
+																.appendTo(
+																	Zip_Dropdown);
+														});
+											})
+										.fail(
+											function () {
+												alert("Connection Error");
+											})
+								}
+
+							})
+				})
+	</script>
+
+</body>
+
+</html>

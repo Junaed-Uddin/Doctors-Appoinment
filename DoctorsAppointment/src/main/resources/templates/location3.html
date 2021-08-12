@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>location</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=a9a31ec932de3114d9b1ed27688edc60">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link rel="stylesheet" href="http://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+
+
+	<!-- ------------ -->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+
+	</script>
+
+	<!-- ===== CSS ===== -->
+	<link rel="stylesheet" href="/assets/css/productNew.css">
+	<style type="text/css">
+		#collapseA::after {
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: 20px;
+			transform: translateY(-50%);
+		}
+
+		#collapseB::after {
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: 20px;
+			transform: translateY(-50%);
+		}
+	</style>
+
+	<!-- Icon link added -->
+	<script src="https://kit.fontawesome.com/c598047e8f.js" crossorigin="anonymous"></script>
+
+
+	<script src="/assets/js/products.js">
+
+	</script>
+</head>
+
+<body id="page-top">
+	<div id="wrapper">
+		<nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion p-0 mr-3">
+			<div class="container-fluid d-flex flex-column p-0">
+				<a th:href="@{'/Admin/' }"
+					class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0 my-2">
+					<div class="sidebar-brand-icon rotate-n-0"><img src="/assets/img/global.png" alt="logo" width="45" height="45"></div>
+					<div class="sidebar-brand-text mx-1"><span style="color:#7256CC">Doctor's <br> Appoinment</span></div>
+				</a>
+				<hr class="sidebar-divider my-0">
+				<ul class="nav navbar-nav text-light nlink" id="accordionSidebar">
+					<li class="nav-item"><a th:href="@{'/location/' }" class="nav-link active"><i
+								class="fas fa-street-view"></i>&nbsp;&nbsp;<span>Location</span></a></li>
+					<li class="nav-item"><a th:href="@{'/Admin/' }" class="nav-link"><i
+								class="fas fa-chart-line"></i>&nbsp;&nbsp;<span>Dashboard</span></a></li>
+				
+					<li class="nav-item"><a th:href="@{'/User_Registration/' }" class="nav-link"><i
+								class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;<span>Sign Up</span></a></li>
+					<li class="nav-item"><a th:href="@{'/SignUp1/' }" class="nav-link"><i
+								class="far fa-user"></i>&nbsp;&nbsp;<span>User</span></a></li>
+					<li class="nav-item"><a th:href="@{'/SignUp2/' }" class="nav-link"><i
+								class="fas fa-user-nurse"></i>&nbsp;&nbsp;<span>Doctor</span></a></li>
+				</ul>
+				<div class="text-center d-none d-md-inline"></div>
+			</div>
+		</nav>
+		<div class="d-flex flex-column" id="content-wrapper">
+			<div id="content">
+				<nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+					<div class="container-fluid">
+						<button class="btn btn-link rounded-circle mr-3" data-bs-hover-animate="swing"
+							id="sidebarToggleTop" type="button">
+							<i class="fas fa-bars"></i>
+						</button>
+					</div>
+				</nav>
+				<div class="container-fluid" style="margin-left: 5vh;">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="breadcrumb">
+								<a th:href="@{'/location/'}" class="second"><b>Level 1</b></a>
+							    <a th:href="@{'/location2/'  + ${path[0]} }" class="second"><b>Level 2</b></a>
+                                <a href="#" class="breadcrumb-item active active1"><b>Level 3</b></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-11 col-xl-11 col-md-8 mb-3">
+							<div class="card shadow border border-secondary">
+								<div class="card-header text-center rounded border-secondary" id="prosidenav" style="background-color: #EBF2F2;">
+									<div class="row">
+										<div class="col textHover" style="font-family: Segoe UI, sans-serif; color:#000000;">
+											<h4 <b>Insert Level 3 Location</b>
+										</div>
+									</div>
+								</div>
+								<div class="card-body">
+									<form th:action="@{'/location3/'+ ${id}}" method="post" th:object="${insert_child_loc}">
+										<div class="form-row">									
+											<div class="col-md-6">
+												<label for="validationDefault04">Location Description</label> <input
+													type="text" id="locDescr" name="locDescr" class="form-control"
+													required>
+											</div>
+											<div class="col-md-1">
+												<label for="validationDefault04">Status</label>
+												<div class="input-group-prepend">
+													<div class="input m-1 ml-3">
+														<input type="checkbox" style="width: 2vh; height: 2vh;"
+															value="1" name="status" id="status"
+															aria-label="Checkbox for following text input">
+													</div>
+												</div>
+											</div>
+											<div class="col-md-2">
+												<button class="btn btn-dark button-align glow-on-hover" id="center2"
+														type="submit" style="margin-top:30.5px">Submit</button>
+											</div>						
+											<div class="col-md-4">
+												<label for="validationDefault04"></label> <input type="text" hidden
+													id="parentLocationId" name="parentLocationId" th:value = "*{parentLocationId}" class="form-control" required>
+											</div>
+										</div>								
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xl-11">
+							<table id="myTable" class="table table-bordered table-secondary table-hover">
+								<thead class="thead-white" style= "background-color:#222222">
+									<tr style="text-align: center; color: white; font-family: 'Raleway', sans-serif;">
+										<th scope="col">Location Id</th>
+										<th scope="col">Location Description</th>
+										<th scope="col">Parent Location Description</th>
+										<th hidden scope="col">Edit</th>
+										<th scope="col">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="i : ${showList}" style="text-align: center;">
+										<td th:text="${i.locCode}"></td>
+										<td th:text="${i.locDescr}"></td>
+										<td th:text="${i.parentLoc}"></td>
+										<td hidden><a th:href="@{'/locationedit3/' + ${i.locCode} }"><b>Edit</b></a>
+										<td><a type="button" class="btn btn-primary up" th:href="@{'/location4/' + ${i.locCode} }"
+													th:text="${nextLevel}" style="background-color:#373B53"></a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+	</div>
+
+	<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+	<script src="/assets/js/script.min.js?h=af3a23ce326fbc8eb447b5418ddb619e"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="http://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+	
+	<script>
+		$(document).ready(function () {
+			$('#myTable').DataTable({
+				"scrollY": "300px",
+				"scrollCollapse": true,
+				"paging": false
+			});
+		});
+	</script>
+
+	<script>
+		$(document).ready(function () {
+
+			$('#myTable tr').click(function () {
+				var href = $(this).find("a").attr("href");
+				if (href) {
+					window.location = href;
+				}
+			});
+
+		});
+	</script>
+
+
+</body>
+
+</html>
